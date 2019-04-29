@@ -6,7 +6,7 @@ namespace bullpgia {
 	class Guesser {
 
 	public:
-		unsigned int length
+		unsigned int length;
 		int Bull, Pgia;
 		virtual string guess() = 0;
 		void startNewGame(uint length) {
