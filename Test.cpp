@@ -27,7 +27,7 @@ int main() {
 	int grade = 0;
 	int signal = setjmp(badkan::longjmp_buffer);
 	if (signal == 0) {
-/*
+
 		// BASIC TESTS - DO NOT CHANGE
 		ConstantChooser c1234{ "1234" }, c12345{ "12345" }, c9999{ "9999" };
 		ConstantGuesser g1234{ "1234" }, g12345{ "12345" }, g9999{ "9999" };
@@ -43,16 +43,17 @@ int main() {
 			.CHECK_EQUAL(play(c1234, g12345, 4, 100), 101)   // guesser loses technically by making an illegal guess (too long).
 			.CHECK_EQUAL(play(c12345, g1234, 4, 100), 0)     // chooser loses technically by choosing an illegal number (too long).
 			;
-*/
+
 		testcase.setname("Play with smart guesser");
 		RandomChooser randy;
 		SmartGuesser smarty;
 		
 		for (uint i = 0; i < 100; ++i) {
+			cout << i << endl;
 			testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 100, true);  // smarty should always win in at most 10 turns!
 		}
 		
-		/*
+		
 			testcase.setname("My test- Calculate bull and pgia")
 			.CHECK_OUTPUT(calculateBullAndPgia("1010", "0101"), "0,8") // 0 bull, 8 pgia
 			.CHECK_OUTPUT(calculateBullAndPgia("1058", "5070"), "1,1") // 1 bull, 1 pgia
@@ -116,7 +117,7 @@ int main() {
 				testcase.CHECK_EQUAL(play(randy4, smarty4, 2, 100) <= 30, true);  // smarty win  at most 10 turns
 			}
 		
-		*/
+		
 		grade = testcase.grade();
 	}
 	else {
