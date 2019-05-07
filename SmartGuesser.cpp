@@ -22,12 +22,12 @@ void SmartGuesser::startNewGame(uint length) {
 	}
 }
 
-string SmartGuesser::guess()  {
+
+
+string SmartGuesser::guess() {
 	std::list<std::string>::iterator itOption = option.begin();
-	if (option.size() == 0) {
-		startNewGame(length);
-	}
-	else if (option.size() > 1) {
+
+	if (option.size() > 1) {
 		std::advance(itOption, rand() % (option.size() - 1));
 		tempGuess = *itOption;
 	}
@@ -36,6 +36,8 @@ string SmartGuesser::guess()  {
 	}
 	return tempGuess;
 }
+
+
 
 void SmartGuesser::learn(string reply) {
 	list<string>::iterator it = option.begin();
@@ -47,4 +49,5 @@ void SmartGuesser::learn(string reply) {
 		std::advance(it, 1);
 	}
 	option.remove(tempGuess);
+
 }
