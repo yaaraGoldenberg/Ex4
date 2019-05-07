@@ -1,8 +1,7 @@
-
+#include <array>
 #include "calculate.hpp"
 using namespace std;
-
-
+/*
 string bullpgia::calculateBullAndPgia(string s, string guess) {
 	int countBull = 0, countPgia = 0, size = s.length();
 	for (int i = 0; i < size; i++) {
@@ -14,6 +13,27 @@ string bullpgia::calculateBullAndPgia(string s, string guess) {
 				}
 				else {
 					countPgia++;
+				}
+			}
+		}
+	}
+	string ans = to_string(countBull) + "," + to_string(countPgia);
+	return ans;
+}
+*/
+string bullpgia::calculateBullAndPgia(string s, string guess) {
+	int countBull = 0, countPgia = 0, size = s.length();
+	int arr[size];
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if (s.at(i) == guess.at(j)) {
+				if (i == j) {
+					countBull++;
+					arr[j] = 1;
+					break;
+				}
+			    else if(i != j && arr[j] != 1) {
+				countPgia++;
 				}
 			}
 		}
