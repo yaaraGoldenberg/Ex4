@@ -1,3 +1,4 @@
+
 #include "calculate.hpp"
 using namespace std;
 
@@ -17,6 +18,7 @@ string bullpgia::calculateBullAndPgia(string s, string guess) {
 			}
 		}
 	}
-		string ans = "bull: " + to_string(countBull) + " , pgia: " + to_string(countPgia);
+		string ans = to_string(countBull) + "," + to_string(countPgia);
 		return ans;
 }
+
